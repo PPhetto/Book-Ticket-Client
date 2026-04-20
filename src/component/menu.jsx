@@ -3,8 +3,8 @@ import "../index.css"
 
 function menu() {
   return (
-    <nav className="flex px-6 py-4 bg-blue-600 justify-between item-center text-white">
-      <h1 className="">Try_tailwind-css</h1>
+    <nav className="fixed top-0 flex w-full h-10 px-4 bg-blue-600 justify-between items-center text-white z-50">
+      <h1 className="text-[22px]">🌠Hoshiyomi</h1>
       <ul className="flex flex-row gap-5">
         <li className="">
           <a className='text-white' href="">Home</a>
@@ -16,7 +16,6 @@ function menu() {
           <a className='text-white' href="">Contact</a>
         </li>
       </ul>
-
     </nav>
   )
 }
