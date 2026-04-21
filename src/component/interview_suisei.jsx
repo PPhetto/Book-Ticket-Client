@@ -1,5 +1,4 @@
 import React from 'react'
-import Suisei from "../assets/Hoshimachi-Suisei_pr-img_02.png"
 
 function interview_suisei() {
   return (
