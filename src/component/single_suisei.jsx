@@ -10,7 +10,7 @@ function single_suisei() {
         <h3 className='text-[48px] mt-10 ml-10 mb-5 text-[#4A90E2] font-bold'>
             Top 3 Most Viewed Songs
         </h3>
-        <div className='grid grid-cols-3 justify-cente gap-[50px] mt-5'>
+        <div className='grid grid-cols-3 gap-[50px] mt-5 '>
             <div className='flex flex-col items-center bg-red-600 w-[450px] h-[450px]'>
                 <img className='object-cover w-full h-full' src={Nextcolor} alt="" />
                 <p className='mt-5 font-bold text-[22px]'>
