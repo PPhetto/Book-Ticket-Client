@@ -1,14 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useState } from 'react'
 import "../index.css"
 import SuiseiOutfit1 from "../assets/Hoshimachi-Suisei_pr-img_01.png"
+import SuiseiOutfit2 from "../assets/Hoshimachi-Suisei_pr-img_07.png"
+import SuiseiOutfit3 from "../assets/Hoshimachi-Suisei_pr-img_03.png"
 import Videosuisei from "../assets/Hoshimachi-Suisei_movie.mp4"
 
-function contact_suisei() {
+function Contact_suisei() {
+
+    const outfit = [SuiseiOutfit1, SuiseiOutfit2, SuiseiOutfit3]
+
+    const [indexof,setIndexof] = useState(0)
+
+    useEffect(() => {
+        const countindex = setInterval(() => {
+            setIndexof((index) => (index + 1) % outfit.length)
+        }, 20000)
+        return () => clearInterval(countindex)
+    }, [outfit.length])
   return (
     <div className='flex w-full h-[800px] mt-5 justify-center items-center'>
         <div className='flex flex-row h-full w-[70%] gap-[20px]'>
-            <div className='flex w-auto h-auto'>
-                <img className='w-full h-full' src={SuiseiOutfit1} alt="" />
+            <div className='relative flex w-auto h-auto'>
+                <img className='w-full h-full' src={outfit[indexof]} alt="" />
+                <div className="absolute flex flex-col gap-2 top-20">
+                    {outfit.map((_, i) => (
+                        <button
+                        key={i}
+                        onClick={() => setIndexof(i)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300
+                            ${i === indexof ? "bg-blue-500 scale-125" : "bg-gray-300"}
+                        `}
+                        />
+                    ))}
+                </div>
             </div>
             <div className='flex flex-col w-[600px] h-full justify-center gap-[50px]'>
                 <div className='flex'>
@@ -38,4 +63,4 @@ function contact_suisei() {
   )
 }
 
-export default contact_suisei
+export default Contact_suisei
