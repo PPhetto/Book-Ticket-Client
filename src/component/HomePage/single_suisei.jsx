@@ -1,8 +1,7 @@
 import React from 'react'
-import "../index.css"
-import Nextcolor from '../assets/4fa54cb97a7aee6e80e7bb7620c84b44.1000x1000x1.png'
-import Ghost from '../assets/e3565f292c72e55950ccf95a73f53fed.1000x1000x1.png'
-import Stella from '../assets/星街すいせい_Still-Still-Stellar_jk-e1661750845464.png'
+import Nextcolor from '../../assets/4fa54cb97a7aee6e80e7bb7620c84b44.1000x1000x1.png'
+import Ghost from '../../assets/e3565f292c72e55950ccf95a73f53fed.1000x1000x1.png'
+import Stella from '../../assets/星街すいせい_Still-Still-Stellar_jk-e1661750845464.png'
 
 function single_suisei() {
   return (

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
-import "../index.css"
-import SuiseiOutfit1 from "../assets/Hoshimachi-Suisei_pr-img_01.png"
-import SuiseiOutfit2 from "../assets/Hoshimachi-Suisei_pr-img_07.png"
-import SuiseiOutfit3 from "../assets/Hoshimachi-Suisei_pr-img_03.png"
-import Videosuisei from "../assets/Hoshimachi-Suisei_movie.mp4"
+import SuiseiOutfit1 from "../../assets/Hoshimachi-Suisei_pr-img_01.png"
+import SuiseiOutfit2 from "../../assets/Hoshimachi-Suisei_pr-img_07.png"
+import SuiseiOutfit3 from "../../assets/Hoshimachi-Suisei_pr-img_03.png"
+import Videosuisei from "../../assets/Hoshimachi-Suisei_movie.mp4"
 
 function Contact_suisei() {
 
@@ -26,11 +25,11 @@ function Contact_suisei() {
                 <div className="absolute flex flex-col gap-2 top-20">
                     {outfit.map((_, i) => (
                         <button
-                        key={i}
-                        onClick={() => setIndexof(i)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300
-                            ${i === indexof ? "bg-blue-500 scale-125" : "bg-gray-300"}
-                        `}
+                            key={i}
+                            onClick={() => setIndexof(i)}
+                            className={`w-3 h-3 rounded-full transition-all duration-300
+                                ${i === indexof ? "bg-blue-500 scale-125" : "bg-gray-300"}
+                            `}
                         />
                     ))}
                 </div>

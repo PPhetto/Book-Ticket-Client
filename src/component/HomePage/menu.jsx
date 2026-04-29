@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import "../index.css"
 
 function Menu() {
   const [cstatus,setCstatus] = useState(false)
@@ -33,6 +32,7 @@ function Menu() {
                 <a href="#">Profile</a>
                 <a href="#">Achievements</a>
                 <a href="#">Highlights</a>
+                <a href="#">Logout</a>
             </div>
           )}
         </li>

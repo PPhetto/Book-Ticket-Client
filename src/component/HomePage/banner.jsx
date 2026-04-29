@@ -1,7 +1,6 @@
 import React from 'react'
-import "../index.css"
 /* Assets */
-import Suisei from "../assets/hoshimachi-suisei-aesthetic-discord-pfp-xyqq0f1fuahul92q.webp"
+import Suisei from "../../assets/hoshimachi-suisei-aesthetic-discord-pfp-xyqq0f1fuahul92q.webp"
 
 function banner() {
   return (
