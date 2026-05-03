@@ -12,16 +12,21 @@ function Login() {
       <h3 className='flex text-[70px] text-blue-400'>
       🌠 HOSHIYOMI 🌠
       </h3>
-      <div className='flex flex-row gap-5'>
+      <div className='flex flex-row gap-8'>
         <button 
-          className='border-1 h-[40px] w-[120px] bg-sky-500 shadow-ls rounded-md'
+          className='border-1 h-[40px] w-[120px] bg-sky-500 shadow-lg rounded-md'
           onClick={() => {
-            navigate("/Home")
+            navigate("/home")
           }}
         >
           Sign In
         </button>
-        <button className='border-1 h-[40px] w-[120px] bg-sky-500 shadow-ls rounded-md'>
+        <button 
+          className='border-1 h-[40px] w-[120px] bg-sky-500 shadow-lg rounded-md'
+          onClick={() => {
+            navigate("/register")
+          }}
+        >
           Register
         </button>
       </div>
