@@ -6,7 +6,7 @@ function Menu() {
 
 
   return (
-    <nav className="fixed top-0 flex w-full h-10 px-4 bg-blue-600 justify-between items-center text-white z-50">
+    <nav className="fixed top-0 flex w-full h-10 p-6 bg-blue-600 justify-between items-center text-white z-50">
       <h1 className="text-[22px]">🌠Hoshiyomi</h1>
       <ul className="flex flex-row gap-[30px]">
         <li className="flex">
@@ -50,6 +50,14 @@ function Menu() {
           <a className='flex flex-row items-center text-white gap-[5px]' href="">
             Contact
           </a>
+        </li>
+        <li className="flex">
+          <Link 
+            className='flex flex-row items-center text-white gap-[5px]' 
+            to="/"
+          >
+            Logout
+          </Link>
         </li>
       </ul>
     </nav>
