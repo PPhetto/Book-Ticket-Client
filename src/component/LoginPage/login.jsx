@@ -14,13 +14,13 @@ function Login() {
 
   return (
     <div className='container mx-auto flex flex-col h-screen justify-center items-center gap-10'>
-      <h3 className='text-sky-500 text-4xl md:text-5xl lg:text-6xl '>
+      <h3 className='text-blue-500 text-4xl lg:text-6xl '>
       🌠 HOSHIYOMI 🌠
       </h3>
 
-      <div className='flex flex-col w-full p-5 bg-red-500'>
-        <div className='flex flex-col bg-blue-500'>
-          <p className=''>USERNAME</p>
+      <div className='flex flex-col w-xs lg:w-md px-2 gap-5'>
+        <div className='flex flex-col'>
+          <p className='text-blue-400 font-bold'>USERNAME</p>
           <input
             type='username'
             value={username}
@@ -28,11 +28,11 @@ function Login() {
             onChange={(u) => {
               setUsername(u.target.value)
             }}
-            className=''
+            className='border-1 h-8'
           />
         </div>
-        <div className=''>
-          <p className=''>PASSWORD</p>
+        <div className='flex flex-col'>
+          <p className='text-blue-400 font-bold'>PASSWORD</p>
           <input
             type='password'
             value={password}
@@ -40,14 +40,14 @@ function Login() {
             onChange={(p) => {
               setPassword(p.target.value)
             }}
-            className=''
+            className='border-1 h-8'
           />
         </div>
       </div>
 
-      <div className=''>
+      <div className='flex flex-col gap-5 lg:flex-row lg:gap-10'>
         <button 
-          className=''
+          className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
           onClick={() => {
             Altetcall()
             navigate("/home")
@@ -56,7 +56,7 @@ function Login() {
           Sign In
         </button>
         <button 
-          className=''
+          className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
           onClick={() => {
             navigate("/register")
           }}
