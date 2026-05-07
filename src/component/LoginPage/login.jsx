@@ -8,13 +8,27 @@ function Login() {
   const [password,setPassword] = useState("")
   const navigate = useNavigate();
 
+  // useEffect(() => {
+
+  // })
+
   function Altetcall() {
-    alert("Login Successful")
+    if (!username & !password) {
+      alert("Please Enter your UserAccount")
+    }
+    else if (!username) {
+      alert("Please Enter your Username")
+    } else if (!password) {
+      alert("Please Enter your Password")
+    } else {
+      alert("Login Successful")
+      navigate("/home")
+    }
   }
 
   return (
     <div className='container mx-auto flex flex-col h-screen justify-center items-center gap-10'>
-      <h3 className='text-blue-500 text-4xl lg:text-6xl '>
+      <h3 className='text-blue-500 text-4xl lg:text-6xl font-bold'>
       🌠 HOSHIYOMI 🌠
       </h3>
 
@@ -50,7 +64,6 @@ function Login() {
           className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
           onClick={() => {
             Altetcall()
-            navigate("/home")
           }}
         >
           Sign In

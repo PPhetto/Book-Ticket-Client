@@ -18,26 +18,32 @@ function Home() {
             <Menu />
         </header>
         <main className='relative'>
+          <section>
             <Banner />
+          </section>
+          <section>
             <Interview_suisei />
             <Contact_suisei />
+          </section>
+          <section>
             <Single_suisei />
-            <button
-              onClick={() => {
-                setTicketpage(!ticketpage)
-              }}
-              className='fixed w-[100px] h-[80px] bottom-15 right-15 justify-center items-center z-1000'
-            >
-              <img src={Svgticket} alt="ticket consert" className='w-full h-full' />
-              <p className='font-bold text-blue-500'>Ticket</p>
-            </button>
-            {ticketpage && (
-              <div className='fixed flex h-full w-full justify-center items-center z-100 inset-0'>
-                <div className='flex bg-green-500 w-[1000px] h-full'>
+          </section>
+          <button
+            onClick={() => {
+              setTicketpage(!ticketpage)
+            }}
+            className='fixed w-[100px] h-[80px] bottom-15 right-15 justify-center items-center z-1000'
+          >
+            <img src={Svgticket} alt="ticket consert" className='w-full h-full' />
+            <p className='font-bold text-blue-500'>Ticket</p>
+          </button>
+          {ticketpage && (
+            <div className='fixed flex h-full w-full justify-center items-center z-100 inset-0'>
+              <div className='flex bg-green-500 w-[1000px] h-full'>
 
-                </div>
               </div>
-            )}
+            </div>
+          )}
         </main>
         <footer>
             <Footer />

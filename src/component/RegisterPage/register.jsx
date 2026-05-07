@@ -9,66 +9,81 @@ function Register() {
     const [address,setAddress] = useState("")
     const navigate = useNavigate()
 
+    async function Register() {
+        alert("Register Successful")
+    }
+
   return (
-    <div className='flex h-screen justify-center items-center'>
-        <div className='flex flex-col gap-10 py-5 px-5 justify-center items-center'>
-            <h3 className='flex text-[60px] text-blue-400'>
+        <div className='container mx-auto flex flex-col gap-10 h-screen justify-center items-center'>
+            <h3 className='text-blue-500 font-bold text-4xl lg:text-6xl'>
             🌠 HOSHIYOMI 🌠
             </h3>
-            <div className='flex flex-col gap-5'>
-                <input
-                    value={username}
-                    onChange={(u) => {
-                        setUsername(u.target.value)
-                    }}
-                    placeholder=' Enter your Username'
-                    className='flex w-[350px] px-1 py-2 border-1'
-                />
-                <input
-                    value={password}
-                    onChange={(p) => {
-                        setPassword(p.target.value)
-                    }}
-                    placeholder=' Enter your password'
-                    className='flex w-[350px] px-1 py-2 border-1'
-                />
-                <input
+            <div className='flex flex-col w-xs lg:w-md px-2 gap-5'>
+                <div className='flex flex-col'>
+                    <p className='text-blue-400 font-bold'>USERNAME</p>
+                    <input
+                        value={username}
+                        onChange={(u) => {
+                            setUsername(u.target.value)
+                        }}
+                        placeholder=' Enter your Username'
+                        className='border-1 h-8'
+                    />
+                </div>
+                <div className='flex flex-col'>
+                    <p className='text-blue-400 font-bold'>PASSWORD</p>
+                    <input
+                        value={password}
+                        onChange={(p) => {
+                            setPassword(p.target.value)
+                        }}
+                        placeholder=' Enter your password'
+                        className='border-1 h-8'
+                    />
+                </div>
+                <div className='flex flex-col'>
+                    <p className='text-blue-400 font-bold'>CONFIRM PASSWORD</p>
+                    <input
                     value={cpassword}
                     onChange={(c) => {
                         setCpassword(c.target.value)
                     }}
                     placeholder=' confirm your password'
-                    className='flex w-[350px] px-1 py-2 border-1'
-                />
-                <input
+                    className='border-1 h-8'
+                    />
+                </div>
+                <div className='flex flex-col'>   
+                    <p className='text-blue-400 font-bold'>ADDRESS</p>
+                    <input
                     value={address}
                     onChange={(a) => {
                         setAddress(a.target.value)
                     }}
                     placeholder=' Enter your address'
-                    className='flex w-[350px] px-1 py-2 border-1'
-                />
+                    className='border-1 h-8'
+                    />
+                </div>
             </div>
-            <div className='flex flex-row gap-8 mt-5'>
+            <div className='flex flex-col gap-5 lg:flex-row lg:gap-10'>
                 <button 
-                    className='text-white h-[40px] w-[120px] bg-sky-500 shadow-ls rounded-md'
+                    className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
                     onClick={() => {
-                    navigate("/")
+                        Register()
+                        navigate("/")
                     }}
                 >
                     Register
                 </button>
                 <button 
-                    className='text-white h-[40px] w-[120px] bg-sky-500 shadow-lg rounded-md'
+                    className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
                     onClick={() => {
-                    navigate("/")
+                        navigate("/")
                     }}
                 >
                     Back
                 </button>
             </div>
         </div>
-    </div>
   )
 }
 export default Register
