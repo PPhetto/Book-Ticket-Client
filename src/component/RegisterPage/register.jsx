@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Route, useNavigate } from 'react-router-dom'
 
 function Register() {
 
@@ -9,8 +9,39 @@ function Register() {
     const [address,setAddress] = useState("")
     const navigate = useNavigate()
 
-    async function Register() {
-        alert("Register Successful")
+    const [lberr,setLberr] = useState(false)
+
+    async function handleRegister() {
+        if (password !== cpassword) {
+            setLberr(true)
+            return;
+        }
+
+        try {
+            const res = await fetch("http://localhost:3000/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                    address
+                })
+            });
+
+            const data = await res.json()
+
+            if (res.ok) {
+                alert(data.message);
+                navigate("/")
+            } else {
+                alert(data.message)
+            }
+        } catch (err) {
+            console.log(err)
+            alert("Register Failed")
+        }
     }
 
   return (
@@ -20,47 +51,63 @@ function Register() {
             </h3>
             <div className='flex flex-col w-xs lg:w-md px-2 gap-5'>
                 <div className='flex flex-col'>
-                    <p className='text-blue-400 font-bold'>USERNAME</p>
+                    <div className='flex flex-row'>
+                        <p className='text-blue-400 font-bold'>USERNAME</p>
+                        <span className='text-red-500'>*</span>
+                    </div>
                     <input
+                        type='text'
                         value={username}
                         onChange={(u) => {
                             setUsername(u.target.value)
                         }}
                         placeholder=' Enter your Username'
-                        className='border-1 h-8'
+                        className='border h-8 px-2'
                     />
                 </div>
                 <div className='flex flex-col'>
-                    <p className='text-blue-400 font-bold'>PASSWORD</p>
+                    <div className='flex flex-row'>
+                        <p className='text-blue-400 font-bold'>PASSWORD</p>
+                        <span className='text-red-500'>*</span>
+                    </div>
                     <input
+                        type='password'
                         value={password}
                         onChange={(p) => {
                             setPassword(p.target.value)
                         }}
                         placeholder=' Enter your password'
-                        className='border-1 h-8'
+                        className='border h-8 px-2'
                     />
                 </div>
                 <div className='flex flex-col'>
-                    <p className='text-blue-400 font-bold'>CONFIRM PASSWORD</p>
+                    <div className='flex flex-row'>
+                        <p className='text-blue-400 font-bold'>CONFIRM PASSWORD</p>
+                        <span className='text-red-500'>*</span>
+                    </div>
                     <input
-                    value={cpassword}
-                    onChange={(c) => {
-                        setCpassword(c.target.value)
-                    }}
-                    placeholder=' confirm your password'
-                    className='border-1 h-8'
+                        type='password'
+                        value={cpassword}
+                        onChange={(c) => {
+                            setCpassword(c.target.value)
+                        }}
+                        placeholder=' confirm your password'
+                        className='border h-8 px-2'
                     />
+                    {lberr && (
+                        <p className='text-red-500'>*Please check your password is not same.</p>
+                    )}
                 </div>
                 <div className='flex flex-col'>   
                     <p className='text-blue-400 font-bold'>ADDRESS</p>
                     <input
-                    value={address}
-                    onChange={(a) => {
-                        setAddress(a.target.value)
-                    }}
-                    placeholder=' Enter your address'
-                    className='border-1 h-8'
+                        type='text'
+                        value={address}
+                        onChange={(a) => {
+                            setAddress(a.target.value)
+                        }}
+                        placeholder=' Enter your address'
+                        className='border h-8 px-2'
                     />
                 </div>
             </div>
@@ -68,8 +115,7 @@ function Register() {
                 <button 
                     className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
                     onClick={() => {
-                        Register()
-                        navigate("/")
+                        handleRegister()
                     }}
                 >
                     Register

@@ -8,21 +8,36 @@ function Login() {
   const [password,setPassword] = useState("")
   const navigate = useNavigate();
 
-  // useEffect(() => {
+  async function handleLogin() {
 
-  // })
-
-  function Altetcall() {
-    if (!username & !password) {
-      alert("Please Enter your UserAccount")
+    if (!username.trim() || !password.trim()) {
+      alert("Invalid information")
+      return;
     }
-    else if (!username) {
-      alert("Please Enter your Username")
-    } else if (!password) {
-      alert("Please Enter your Password")
-    } else {
-      alert("Login Successful")
-      navigate("/home")
+    
+    try {
+      const res = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      })
+  
+      const data = await res.json()
+
+      if (res.ok) {
+        alert(data.message)
+        navigate("/home")
+      } else {
+        alert(data.message)
+      }
+
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -36,13 +51,13 @@ function Login() {
         <div className='flex flex-col'>
           <p className='text-blue-400 font-bold'>USERNAME</p>
           <input
-            type='username'
+            type='text'
             value={username}
             placeholder=' Enter your Username'
             onChange={(u) => {
               setUsername(u.target.value)
             }}
-            className='border-1 h-8'
+            className='border-1 h-8 px-2'
           />
         </div>
         <div className='flex flex-col'>
@@ -54,7 +69,7 @@ function Login() {
             onChange={(p) => {
               setPassword(p.target.value)
             }}
-            className='border-1 h-8'
+            className='border-1 h-8 px-2'
           />
         </div>
       </div>
@@ -63,7 +78,7 @@ function Login() {
         <button 
           className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
           onClick={() => {
-            Altetcall()
+            handleLogin()
           }}
         >
           Sign In
