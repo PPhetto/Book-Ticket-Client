@@ -8,7 +8,7 @@ function Menu() {
   const [imgcheck,setImgcheck] = useState(false)
 
   return (
-    <nav className="fixed relative w-full top-0 left-0 shadow-md bg-blue-500 z-1000">
+    <nav className="relative w-full top-0 left-0 shadow-md bg-blue-500 z-1000">
       <div className='container mx-auto p-2 flex flex-row h-full justify-between items-center'>
         <h1 className="text-2xl text-white font-bold">🌠Hoshiyomi</h1>
         <ul className='lg:hidden flex h-full'>

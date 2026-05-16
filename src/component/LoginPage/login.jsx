@@ -78,7 +78,8 @@ function Login() {
         <button 
           className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
           onClick={() => {
-            handleLogin()
+            // handleLogin()
+            navigate("/home")
           }}
         >
           Sign In
