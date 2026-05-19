@@ -8,6 +8,7 @@ import Single_suisei from '../component/HomePage/single_suisei'
 import Contact_suisei from '../component/HomePage/contact_suisei'
 import Footer from '../component/HomePage/footer'
 import Ticket from '../component/TicketPage/ticket'
+import Ticketclaud from '../component/TicketPage/Ticket_claud'
 // image
 import Svgticket from '../assets/ticket-svgrepo-com.svg'
 
@@ -40,7 +41,7 @@ function Home() {
           </button>
           {ticketpage && (
             <div className='fixed flex h-full w-full justify-center items-center z-100 inset-0'>
-              <Ticket />
+              <Ticketclaud />
             </div>
           )}
         </main>
