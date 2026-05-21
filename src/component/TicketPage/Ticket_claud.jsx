@@ -1,24 +1,24 @@
 import React, { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 import Concert1 from '../../assets/hoshimatchi-suisei-live-tour-spectra-of-nova-has-been-v0-2j2w0lj6ozld1.webp'
 import Concert2 from '../../assets/SiC_KV_design_RGB_01_1080p.jpg'
 import Concert3 from '../../assets/suisei-announced-her-budoukan-live-supernova-v0-ccc2ano5qu0e1.webp'
 import Concert4 from '../../assets/suisei_event_sss_img.png'
+import Concert5 from '../../assets/30268-1192-92496f1df0022ae7ddc454813e5829b6-1920x1080-1.webp'
 
-const concerts = [
-  { id: 1, img: Concert1, name: 'SPECTRA NOVA' },
-  { id: 2, img: Concert2, name: 'Shout in Crisis' },
-  { id: 3, img: Concert3, name: 'SUPER NOVA' },
-  { id: 4, img: Concert4, name: 'STELLA STELLA' },
-  { id: 5, img: Concert3, name: 'SUPER NOVA' },
-  { id: 6, img: Concert4, name: 'STELLA STELLA' },
-  { id: 7, img: Concert3, name: 'SUPER NOVA' }
-
-]
-
-const VISIBLE = 6
 
 function Ticket() {
+  const concerts = [
+    { id: 1, img: Concert1, name: 'SPECTRA NOVA', price: '฿2,500' },
+    { id: 2, img: Concert2, name: 'Shout in Crisis', price: '฿1,800' },
+    { id: 3, img: Concert3, name: 'SUPER NOVA', price: '฿3,200' },
+    { id: 4, img: Concert4, name: 'STELLA STELLA', price: '฿2,900' },
+    { id: 5, img: Concert5, name: 'SuperNova: REBOOT', price: '฿4,500' },
+  ]
+
+  const VISIBLE = 6
+
   const [index, setIndex] = useState(0)
 
   const canLeft = index > 0
@@ -33,7 +33,7 @@ function Ticket() {
   }
 
   return (
-    <div className="flex flex-col w-full min-h-screen lg:min-h-0 lg:h-[500px] bg-blue-500 py-6 px-4 items-center gap-6">
+    <div className="flex flex-col w-full min-h-screen lg:min-h-0 lg:h-[540px] bg-blue-500 py-6 px-4 items-center gap-6">
       <h1 className="text-white text-3xl lg:text-5xl font-bold">
         Concert Tickets
       </h1>
@@ -61,6 +61,16 @@ function Ticket() {
               <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
                 {c.name}
               </p>
+              <div className='flex flex-row gap-7'>
+                <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
+                  {c.price}
+                </p>
+                <button
+                  className="flex items-center gap-1.5 px-7 py-1 rounded-full bg-white hover:bg-red-400 active:scale-95 active:bg-blue-600 text-blue-500 hover:text-white text-sm font-semibold shadow-md shadow-blue-500/40 hover:shadow-blue-400/50 transition-all duration-200"
+                >
+                  <p>BUY</p>
+                </button>
+              </div>
             </li>
           ))}
         </ul>
