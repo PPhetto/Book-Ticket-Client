@@ -8,6 +8,7 @@ import Single_suisei from '../component/HomePage/single_suisei'
 import Contact_suisei from '../component/HomePage/contact_suisei'
 import Footer from '../component/HomePage/footer'
 import Ticket from '../component/TicketPage/ticket'
+import Auth from '../component/Authorization/auth'
 import Ticketclaud from '../component/TicketPage/Ticket_claud'
 // image
 import Svgticket from '../assets/ticket-svgrepo-com.svg'
@@ -20,6 +21,7 @@ function Home() {
           <Menu />
         </header>
         <main className='relative'>
+          <Auth />
           <section>
             <Banner />
           </section>

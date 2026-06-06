@@ -91,6 +91,9 @@ function Menu() {
           <li className="flex">
             <Link 
               className='flex flex-row items-center text-white gap-[5px]' 
+              onClick={() => {
+                localStorage.removeItem("token");
+              }}
               to="/"
             >
               Logout

@@ -34,3 +34,6 @@ function ticket() {
 }
 
 export default ticket
+
+
+

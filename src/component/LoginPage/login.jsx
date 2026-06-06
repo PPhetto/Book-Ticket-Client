@@ -10,10 +10,10 @@ function Login() {
 
   async function handleLogin() {
 
-    if (!username.trim() || !password.trim()) {
-      alert("Invalid information")
-      return;
-    }
+    // if (!username.trim() || !password.trim()) {
+    //   alert("Invalid information")
+    //   return;
+    // }
     
     try {
       const res = await fetch("http://localhost:3000/login", {
@@ -30,11 +30,12 @@ function Login() {
       const data = await res.json()
 
       if (res.ok) {
+        localStorage.setItem("token", data.token);
         alert(data.message)
         navigate("/home")
       } else {
         alert(data.message)
-      }
+      } 
 
     } catch (err) {
       console.log(err)
@@ -78,8 +79,8 @@ function Login() {
         <button 
           className='border-1 text-white bg-blue-500 shadow-md w-60 h-10 lg:w-40'
           onClick={() => {
-            // handleLogin()
-            navigate("/home")
+            handleLogin()
+            // navigate("/home")
           }}
         >
           Sign In
