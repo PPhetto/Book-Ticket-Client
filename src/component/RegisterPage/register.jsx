@@ -34,7 +34,7 @@ function Register() {
 
             if (res.ok) {
                 alert(data.message);
-                navigate("/")
+                navigate("/Login")
             } else {
                 alert(data.message)
             }

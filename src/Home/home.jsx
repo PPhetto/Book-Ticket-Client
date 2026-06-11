@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../index.css'
 // component
 import Menu from '../component/HomePage/menu'
@@ -15,26 +15,45 @@ import Svgticket from '../assets/ticket-svgrepo-com.svg'
 
 function Home() {
   const [ticketpage,setTicketpage] = useState(false)
+
+  const [cflogin, setCflogin] = useState(false)
+
+  useEffect(() => {
+    const checktoken = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        setCflogin(false)
+      } else {
+        setCflogin(true)
+      }
+    }
+    checktoken()
+  }, [])
   return (
     <div className='relative'>
         <header>
           <Menu />
         </header>
         <main className='relative'>
-          <Auth />
+          {/* <Auth /> */}
           <section>
             <Banner />
           </section>
-          <section>
+          <section id='About'>
             <Interview_suisei />
             <Contact_suisei />
           </section>
-          <section>
+          <section id='Music'>
             <Single_suisei />
           </section>
           <button
             onClick={() => {
-              setTicketpage(!ticketpage)
+              if (!cflogin) {
+                alert("Please Login!")
+              } else {
+                setTicketpage(!ticketpage)
+              }
             }}
             className='fixed w-[100px] h-[80px] bottom-15 right-15 justify-center items-center z-1000'
           >
@@ -47,7 +66,7 @@ function Home() {
             </div>
           )}
         </main>
-        <footer>
+        <footer id='Contact'>
             <Footer />
         </footer>
     </div>

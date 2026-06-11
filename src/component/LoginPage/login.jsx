@@ -30,9 +30,9 @@ function Login() {
       const data = await res.json()
 
       if (res.ok) {
-        localStorage.setItem("token", data.token);
+        await localStorage.setItem("token", data.token);
         alert(data.message)
-        navigate("/home")
+        navigate("/")
       } else {
         alert(data.message)
       } 
