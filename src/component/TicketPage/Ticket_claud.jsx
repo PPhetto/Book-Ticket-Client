@@ -1,80 +1,177 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+import Svgticket from '../../assets/ticket-svgrepo-com.svg'
 
 function Ticket() {
-  const concerts = [
-    { id: 1, img: 'https://drive.google.com/thumbnail?id=1AHPTbsBqz-zHxtIcvkZkO4tH01RQd_OY&sz=w1000', name: 'SPECTRA NOVA', price: '฿2,500' },
-    { id: 2, img: 'https://drive.google.com/thumbnail?id=19ccWCHgOkBihQ_R41LN6MGIxW3Ci8I8i&sz=w1000', name: 'Shout in Crisis', price: '฿1,800' },
-    { id: 3, img: 'https://drive.google.com/thumbnail?id=1CANvvnIP2uZXi4bT9mVJj601z4qF-Sy0&sz=w1000', name: 'SUPER NOVA', price: '฿3,200' },
-    { id: 4, img: 'https://drive.google.com/thumbnail?id=1XxgsZlqYJZoQCvRnnDzrrNHGozQ42wCB&sz=w1000', name: 'STELLA STELLA', price: '฿2,900' },
-    { id: 5, img: 'https://drive.google.com/thumbnail?id=1EJ_nvzyG_XQvphS527LNZAnzDARUrEK9&sz=w1000', name: 'SuperNova: REBOOT', price: '฿4,500' },
-  ]
+
+  const [ticketpage,setTicketpage] = useState(false)
+  const [cflogin, setCflogin] = useState(false)
+
+  const [ticketconcerts,setTicketconcert] = useState([])
+
+  useEffect(() => {
+    async function callticketconcerts() {
+      const res = await fetch("http://localhost:3000/concerts")
+      const data = await res.json()
+      setTicketconcert(data)
+    }
+    callticketconcerts()
+  }, [])
+
+  useEffect(() => {
+    const checktoken = async () => {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        setCflogin(false)
+      } else {
+        setCflogin(true)
+      }
+    }
+    checktoken()
+  }, [])
+
+  // const concerts = [
+  //   { id: 1, img: 'https://drive.google.com/thumbnail?id=1AHPTbsBqz-zHxtIcvkZkO4tH01RQd_OY&sz=w1000', name: 'SPECTRA NOVA', price: '฿2,500' },
+  //   { id: 2, img: 'https://drive.google.com/thumbnail?id=19ccWCHgOkBihQ_R41LN6MGIxW3Ci8I8i&sz=w1000', name: 'Shout in Crisis', price: '฿1,800' },
+  //   { id: 3, img: 'https://drive.google.com/thumbnail?id=1CANvvnIP2uZXi4bT9mVJj601z4qF-Sy0&sz=w1000', name: 'SUPER NOVA', price: '฿3,200' },
+  //   { id: 4, img: 'https://drive.google.com/thumbnail?id=1XxgsZlqYJZoQCvRnnDzrrNHGozQ42wCB&sz=w1000', name: 'STELLA STELLA', price: '฿2,900' },
+  //   { id: 5, img: 'https://drive.google.com/thumbnail?id=1EJ_nvzyG_XQvphS527LNZAnzDARUrEK9&sz=w1000', name: 'SuperNova: REBOOT', price: '฿4,5000' },
+  // ]
 
   const VISIBLE = 6
 
   const [index, setIndex] = useState(0)
 
   const canLeft = index > 0
-  const canRight = index + VISIBLE < concerts.length
+  const canRight = index + VISIBLE < ticketconcerts.length
 
   const scroll = (dir) => {
     setIndex((prev) =>
       dir === 'left'
         ? Math.max(prev - 1, 0)
-        : Math.min(prev + 1, concerts.length - VISIBLE)
+        : Math.min(prev + 1, ticketconcerts.length - VISIBLE)
     )
   }
 
   return (
-    <div className="flex flex-col w-full min-h-screen lg:min-h-0 lg:h-[540px] bg-blue-500 py-6 px-4 items-center gap-6">
-      <h1 className="text-white text-3xl lg:text-5xl font-bold">
-        Concert Tickets
-      </h1>
-      <div className="relative w-full flex items-center justify-center gap-3">
+    <div className='flex flex-col w-full'>
         <button
-          onClick={() => scroll('left')}
-          disabled={!canLeft}
-          className="w-9 h-9 flex-shrink-0 rounded-full bg-white/20 hover:bg-white hover:text-blue-500 text-white text-xl font-bold transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center"
+          onClick={() => {
+            if (!cflogin) {
+              alert("Please Login!")
+            } else {
+              setTicketpage(!ticketpage)
+            }
+          }}
+          className='fixed w-[100px] h-[80px] bottom-15 right-15 justify-center items-center z-1000'
         >
-          ‹
+          <img src={Svgticket} alt="ticket consert" className='w-full h-full' />
+          <p className='font-bold text-blue-500'>Ticket</p>
         </button>
-        <ul className="flex flex-row w-full gap-5 overflow-hidden justify-center">
-          {concerts.slice(index, index + VISIBLE).map((c) => (
-            <li
-              key={c.id}
-              className="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer"
-            >
-              <div className="w-[220px] lg:w-[240px] h-[300px] lg:h-[330px] rounded-2xl overflow-hidden shadow-lg ring-2 ring-white/20 group-hover:ring-white/60 transition-all duration-300">
-                <img
-                  src={c.img}
-                  alt={c.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
-                {c.name}
-              </p>
-              <div className='flex flex-row gap-7'>
-                <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
-                  {c.price}
-                </p>
-                <button
-                  className="flex items-center gap-1.5 px-7 py-1 rounded-full bg-white hover:bg-red-400 active:scale-95 active:bg-blue-600 text-blue-500 hover:text-white text-sm font-semibold shadow-md shadow-blue-500/40 hover:shadow-blue-400/50 transition-all duration-200"
-                >
-                  <p>BUY</p>
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
-        <button
-          onClick={() => scroll('right')}
-          disabled={!canRight}
-          className="w-9 h-9 flex-shrink-0 rounded-full bg-white/20 hover:bg-white hover:text-blue-500 text-white text-xl font-bold transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center"
-        >
-          ›
-        </button>
-      </div>
+        {ticketpage && (
+          <div className="flex flex-col w-full min-h-screen lg:min-h-0 lg:h-[540px] bg-blue-500 py-6 px-4 items-center gap-6">
+            <h1 className="text-white text-3xl lg:text-5xl font-bold">
+              Concert Tickets
+            </h1>
+            <div className="relative w-full flex items-center justify-center gap-3">
+              <button
+                onClick={() => scroll('left')}
+                disabled={!canLeft}
+                className="w-9 h-9 flex-shrink-0 rounded-full bg-white/20 hover:bg-white hover:text-blue-500 text-white text-xl font-bold transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                ‹
+              </button>
+              <ul className="flex flex-row w-full gap-5 overflow-hidden justify-center">
+                {ticketconcerts.slice(index, index + VISIBLE).map((c) => (
+                  <li
+                    key={c.id}
+                    className="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer"
+                  >
+                    <div className="w-[220px] lg:w-[240px] h-[300px] lg:h-[330px] rounded-2xl overflow-hidden shadow-lg ring-2 ring-white/20 group-hover:ring-white/60 transition-all duration-300">
+                      <img
+                        src={c.image_url}
+                        alt={c.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
+                      {c.name}
+                    </p>
+                    <div className='flex flex-row gap-7'>
+                      <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
+                        {c.price}
+                      </p>
+                      <button
+                        className="flex items-center gap-1.5 px-7 py-1 rounded-full bg-white hover:bg-red-400 active:scale-95 active:bg-blue-600 text-blue-500 hover:text-white text-sm font-semibold shadow-md shadow-blue-500/40 hover:shadow-blue-400/50 transition-all duration-200"
+                      >
+                        <p>BUY</p>
+                      </button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => scroll('right')}
+                disabled={!canRight}
+                className="w-9 h-9 flex-shrink-0 rounded-full bg-white/20 hover:bg-white hover:text-blue-500 text-white text-xl font-bold transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center"
+              >
+                ›
+              </button>
+            </div>
+          </div>
+        )}
     </div>
+    // <div className="flex flex-col w-full min-h-screen lg:min-h-0 lg:h-[540px] bg-blue-500 py-6 px-4 items-center gap-6">
+    //   <h1 className="text-white text-3xl lg:text-5xl font-bold">
+    //     Concert Tickets
+    //   </h1>
+    //   <div className="relative w-full flex items-center justify-center gap-3">
+    //     <button
+    //       onClick={() => scroll('left')}
+    //       disabled={!canLeft}
+    //       className="w-9 h-9 flex-shrink-0 rounded-full bg-white/20 hover:bg-white hover:text-blue-500 text-white text-xl font-bold transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center"
+    //     >
+    //       ‹
+    //     </button>
+    //     <ul className="flex flex-row w-full gap-5 overflow-hidden justify-center">
+    //       {ticketconcerts.slice(index, index + VISIBLE).map((c) => (
+    //         <li
+    //           key={c.id}
+    //           className="flex-shrink-0 flex flex-col items-center gap-3 group cursor-pointer"
+    //         >
+    //           <div className="w-[220px] lg:w-[240px] h-[300px] lg:h-[330px] rounded-2xl overflow-hidden shadow-lg ring-2 ring-white/20 group-hover:ring-white/60 transition-all duration-300">
+    //             <img
+    //               src={c.image_url}
+    //               alt={c.name}
+    //               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+    //             />
+    //           </div>
+    //           <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
+    //             {c.name}
+    //           </p>
+    //           <div className='flex flex-row gap-7'>
+    //             <p className="text-white text-xl font-bold tracking-wide group-hover:text-blue-100 transition-colors">
+    //               {c.price}
+    //             </p>
+    //             <button
+    //               className="flex items-center gap-1.5 px-7 py-1 rounded-full bg-white hover:bg-red-400 active:scale-95 active:bg-blue-600 text-blue-500 hover:text-white text-sm font-semibold shadow-md shadow-blue-500/40 hover:shadow-blue-400/50 transition-all duration-200"
+    //             >
+    //               <p>BUY</p>
+    //             </button>
+    //           </div>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //     <button
+    //       onClick={() => scroll('right')}
+    //       disabled={!canRight}
+    //       className="w-9 h-9 flex-shrink-0 rounded-full bg-white/20 hover:bg-white hover:text-blue-500 text-white text-xl font-bold transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center"
+    //     >
+    //       ›
+    //     </button>
+    //   </div>
+    // </div>
   )
 }
 
