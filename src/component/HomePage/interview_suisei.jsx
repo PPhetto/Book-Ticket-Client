@@ -3,7 +3,7 @@ import React from 'react'
 function interview_suisei() {
   return (
     <div className='flex flex-col justify-center items-center'>
-        <h3 className='text-[48px] mt-10 ml-10 mb-5 text-[#4A90E2] font-bold'>
+        <h3 className='text-[30px] lg:text-[48px] mt-10 ml-10 mb-5 text-[#4A90E2] font-bold'>
             星街すいせい「 Hoshimachi Suisei 」
         </h3>
         <div className='flex flex-col h-auto w-full justify-center items-center '>

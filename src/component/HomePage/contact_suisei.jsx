@@ -19,7 +19,7 @@ function Contact_suisei() {
     }, [outfit.length])
   return (
     <div className='flex w-full h-[800px] mt-5 justify-center items-center'>
-        <div className='flex flex-row h-full w-[70%] gap-[20px]'>
+        <div className='flex flex-col lg:flex-row h-full w-[70%] gap-[20px]'>
             <div className='relative flex w-auto h-auto'>
                 <img className='w-full h-full' src={outfit[indexof]} alt="" />
                 <div className="absolute flex flex-col gap-2 top-20">
@@ -34,24 +34,24 @@ function Contact_suisei() {
                     ))}
                 </div>
             </div>
-            <div className='flex flex-col w-[600px] h-full justify-center gap-[50px]'>
-                <div className='flex'>
+            <div className='flex flex-col w-auto lg:w-[600px] h-auto justify-center gap-[50px]'>
+                <div className='flex w-auto'>
                     <video src={Videosuisei} autoPlay muted loop></video>
                 </div>
-                <div className='flex flex-col gap-[10px]'>
-                    <div className='flex flex-row w-full gap-[10px]'>
-                        <button className='flex w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
+                <div className='flex flex-col gap-[10px] w-auto h-auto lg:w[600px]'>
+                    <div className='flex flex-col lg:flex-row w-full gap-[10px]'>
+                        <button className='flex w-auto lg:w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
                             <p className='text-black'>Youtube</p>
                         </button>
-                        <button className='flex w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
+                        <button className='flex w-auto lg:w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
                             <p className='text-black'>X</p>
                         </button>
                     </div>
-                    <div className='flex flex-row w-full gap-[10px]'>
-                        <button className='flex w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
+                    <div className='flex flex-col lg:flex-row w-full gap-[10px]'>
+                        <button className='flex w-auto lg:w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
                             <p className='text-black'>Song Playlist</p>
                         </button>
-                        <button className='flex w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
+                        <button className='flex w-auto lg:w-[295px] h-[45px] justify-center items-center rounded-[10px] border-1 border-gray-400'>
                             <p className='text-black'>星街すいせい Official Site</p>
                         </button>
                     </div>
