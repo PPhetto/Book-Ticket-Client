@@ -5,13 +5,13 @@ import Stella from '../../assets/星街すいせい_Still-Still-Stellar_jk-e1661
 
 function single_suisei() {
   return (
-    <div className='flex flex-col justify-center items-center mb-50'>
+    <div className='flex flex-col justify-center items-center'>
         <h3 className='text-[48px] mt-10 ml-10 mb-5 text-[#4A90E2] font-bold'>
             Top 3 Most Viewed Songs
         </h3>
-        <div className='grid grid-cols-3 gap-[50px] mt-5 '>
-            <div className='flex flex-col items-center bg-red-600 w-[450px] h-[450px]'>
-                <img className='object-cover w-full h-full' src={Nextcolor} alt="" />
+        <div className='flex flex-col lg:flex-row gap-[50px] mt-5 '>
+            <div className='flex flex-col items-center w-[450px] h-auto'>
+                <img className='object-cover w-[350px] h-[350px] lg:w-[450px] lg:h-[450px]' src={Nextcolor} alt="" />
                 <p className='mt-5 font-bold text-[22px]'>
                     NEXT COLOR PLANET
                 </p>
@@ -19,8 +19,8 @@ function single_suisei() {
                     “เพลงที่เป็นเหมือนจุดเริ่มต้นของการเดินทางสู่จักรวาลของเธอ จังหวะสดใสแต่เต็มไปด้วยพลัง ทำให้รู้สึกเหมือนกำลังถูกชวนให้ออกไปค้นหาสีสันใหม่ๆ ของชีวิต และก้าวไปข้างหน้าโดยไม่ต้องกลัว 🌠”
                 </p>
             </div>
-            <div className='flex flex-col items-center bg-red-600 w-[450px] h-[450px]'>
-                <img className='object-cover w-full h-full' src={Stella} alt="" />
+            <div className='flex flex-col items-center w-[450px] h-auto'>
+                <img className='object-cover w-[350px] h-[350px] lg:w-[450px] lg:h-[450px]' src={Stella} alt="" />
                 <p className='mt-3 font-bold text-[22px]'>
                     Stella Stella
                 </p>
@@ -28,8 +28,8 @@ function single_suisei() {
                     “นี่ไม่ใช่แค่เพลงธรรมดา แต่มันคือเส้นทางของคนคนหนึ่งที่พยายามจะเปล่งประกายให้ได้ในโลกที่มืดมน เสียงที่เต็มไปด้วยความหวัง ความพยายาม และความไม่ยอมแพ้ ทำให้เพลงนี้กลายเป็นแรงผลักดันให้ใครหลายคน ✨”
                 </p>
             </div>
-            <div className='flex flex-col items-center bg-red-600 w-[450px] h-[450px]'>
-                <img className='object-cover w-full h-full' src={Ghost} alt="" />
+            <div className='flex flex-col items-center w-[450px] h-auto'>
+                <img className='object-cover w-[350px] h-[350px] lg:w-[450px] lg:h-[450px]' src={Ghost} alt="" />
                 <p className='mt-3 font-bold text-[22px]'>
                     GHOST
                 </p>

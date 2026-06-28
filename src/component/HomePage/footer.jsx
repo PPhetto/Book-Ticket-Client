@@ -2,7 +2,7 @@ import React from 'react'
 
 function footer() {
   return (
-    <div className="flex h-[350px] w-full bg-[url('/z78jtefzwl8c3.webp')] bg-cover bg-no-repeat mt-50">
+    <div className="flex h-[350px] w-full bg-[url('/z78jtefzwl8c3.webp')] bg-cover bg-no-repeat mt-10">
         <div className='flex flex-row h-full px-30 py-20 w-[55%] gap-[70px]'>
             <div className='flex w-auto h-auto ml-[20px]'>
                 <div className='flex flex-col w-auto h-auto'>
