@@ -18,9 +18,9 @@ function Contact_suisei() {
         return () => clearInterval(countindex)
     }, [outfit.length])
   return (
-    <div className='flex w-full h-[800px] mt-5 justify-center items-center'>
+    <div className='flex w-full h-auto mt-5 justify-center items-center'>
         <div className='flex flex-col lg:flex-row h-full w-[70%] gap-[20px]'>
-            <div className='relative flex w-auto h-auto'>
+            <div className='relative flex max-w-[500px] max-h-[800px]'>
                 <img className='w-full h-full' src={outfit[indexof]} alt="" />
                 <div className="absolute flex flex-col gap-2 top-20">
                     {outfit.map((_, i) => (

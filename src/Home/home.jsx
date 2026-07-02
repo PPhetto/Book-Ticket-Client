@@ -5,7 +5,6 @@ import Menu from '../component/HomePage/menu'
 import Banner from '../component/HomePage/banner'
 import Interview_suisei from '../component/HomePage/interview_suisei'
 import Single_suisei from '../component/HomePage/single_suisei'
-import Single_suisei_news from '../component/HomePage/single_suisei_news'
 import Contact_suisei from '../component/HomePage/contact_suisei'
 import Footer from '../component/HomePage/footer'
 import Ticket from '../component/TicketPage/ticket'
@@ -31,7 +30,7 @@ function Home() {
             <Contact_suisei />
           </section>
           <section id='Music'>
-            <Single_suisei_news />
+            <Single_suisei />
           </section>
           <section className='fixed flex h-full w-full justify-center items-center z-100 inset-0'>
             <Ticketclaud />

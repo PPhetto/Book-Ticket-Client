@@ -5,37 +5,43 @@ import Stella from '../../assets/星街すいせい_Still-Still-Stellar_jk-e1661
 
 function single_suisei() {
   return (
-    <div className='flex flex-col justify-center items-center'>
-        <h3 className='text-[48px] mt-10 ml-10 mb-5 text-[#4A90E2] font-bold'>
+    <div className='flex flex-col justify-center items-center mt-5'>
+        <h3 className='text-[30px] lg:text-[48px] mt-10 ml-10 mb-5 text-[#4A90E2] font-bold'>
             Top 3 Most Viewed Songs
         </h3>
         <div className='flex flex-col lg:flex-row gap-[50px] mt-5 '>
             <div className='flex flex-col items-center w-[450px] h-auto'>
                 <img className='object-cover w-[350px] h-[350px] lg:w-[450px] lg:h-[450px]' src={Nextcolor} alt="" />
-                <p className='mt-5 font-bold text-[22px]'>
-                    NEXT COLOR PLANET
-                </p>
-                <p className='mt-5'>
-                    “เพลงที่เป็นเหมือนจุดเริ่มต้นของการเดินทางสู่จักรวาลของเธอ จังหวะสดใสแต่เต็มไปด้วยพลัง ทำให้รู้สึกเหมือนกำลังถูกชวนให้ออกไปค้นหาสีสันใหม่ๆ ของชีวิต และก้าวไปข้างหน้าโดยไม่ต้องกลัว 🌠”
-                </p>
+                <div className='flex flex-col h-full w-[70%] lg:w-full justify-center items-center mb-5'>
+                    <p className='mt-5 font-bold text-[22px]'>
+                        NEXT COLOR PLANET
+                    </p>
+                    <p className='mt-5'>
+                        “เพลงที่เป็นเหมือนจุดเริ่มต้นของการเดินทางสู่จักรวาลของเธอ จังหวะสดใสแต่เต็มไปด้วยพลัง ทำให้รู้สึกเหมือนกำลังถูกชวนให้ออกไปค้นหาสีสันใหม่ๆ ของชีวิต และก้าวไปข้างหน้าโดยไม่ต้องกลัว 🌠”
+                    </p>
+                </div>
             </div>
             <div className='flex flex-col items-center w-[450px] h-auto'>
                 <img className='object-cover w-[350px] h-[350px] lg:w-[450px] lg:h-[450px]' src={Stella} alt="" />
-                <p className='mt-3 font-bold text-[22px]'>
-                    Stella Stella
-                </p>
-                <p className='mt-5'>
-                    “นี่ไม่ใช่แค่เพลงธรรมดา แต่มันคือเส้นทางของคนคนหนึ่งที่พยายามจะเปล่งประกายให้ได้ในโลกที่มืดมน เสียงที่เต็มไปด้วยความหวัง ความพยายาม และความไม่ยอมแพ้ ทำให้เพลงนี้กลายเป็นแรงผลักดันให้ใครหลายคน ✨”
-                </p>
+                <div className='flex flex-col h-full w-[70%] lg:w-full justify-center items-center mb-5'>
+                    <p className='mt-3 font-bold text-[22px]'>
+                        Stella Stella
+                    </p>
+                    <p className='mt-5'>
+                        “นี่ไม่ใช่แค่เพลงธรรมดา แต่มันคือเส้นทางของคนคนหนึ่งที่พยายามจะเปล่งประกายให้ได้ในโลกที่มืดมน เสียงที่เต็มไปด้วยความหวัง ความพยายาม และความไม่ยอมแพ้ ทำให้เพลงนี้กลายเป็นแรงผลักดันให้ใครหลายคน ✨”
+                    </p>
+                </div>
             </div>
             <div className='flex flex-col items-center w-[450px] h-auto'>
                 <img className='object-cover w-[350px] h-[350px] lg:w-[450px] lg:h-[450px]' src={Ghost} alt="" />
-                <p className='mt-3 font-bold text-[22px]'>
-                    GHOST
-                </p>
-                <p className='mt-5'>
-                    “บางครั้งความเจ็บปวดมันไม่สามารถพูดออกมาได้ตรงๆ… แต่เสียงเพลงนี้ถ่ายทอดมันออกมาได้หมด ทุกคำร้องเหมือนสะท้อนความรู้สึกที่ซ่อนอยู่ลึกๆ และยิ่งฟังยิ่งรู้สึกว่า ‘เราไม่ได้อยู่คนเดียว’ 💙
-                ”</p>
+                <div className='flex flex-col h-full w-[70%] lg:w-full justify-center items-center mb-5'>
+                    <p className='mt-3 font-bold text-[22px]'>
+                        GHOST
+                    </p>
+                    <p className='mt-5'>
+                        “บางครั้งความเจ็บปวดมันไม่สามารถพูดออกมาได้ตรงๆ… แต่เสียงเพลงนี้ถ่ายทอดมันออกมาได้หมด ทุกคำร้องเหมือนสะท้อนความรู้สึกที่ซ่อนอยู่ลึกๆ และยิ่งฟังยิ่งรู้สึกว่า ‘เราไม่ได้อยู่คนเดียว’ 💙
+                    ”</p>
+                </div>
             </div>
         </div>
     </div>
